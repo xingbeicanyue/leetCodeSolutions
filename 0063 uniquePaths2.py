@@ -72,7 +72,7 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
-    result = s.uniquePathsWithObstacles([[0, 0, 0], [0, 1, 0], [0, 0, 0]])
-    print(result)
-    result = s.uniquePathsWithObstacles([[0, 1], [0, 0]])
-    print(result)
+    r = s.uniquePathsWithObstacles([[0, 0, 0], [0, 1, 0], [0, 0, 0]])
+    print(r)
+    r = s.uniquePathsWithObstacles([[0, 1], [0, 0]])
+    print(r)

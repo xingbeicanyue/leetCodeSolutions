@@ -43,7 +43,7 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
-    result = s.mostCompetitive([3, 5, 2, 6], 2)
-    print(result)
-    result = s.mostCompetitive([2, 4, 3, 3, 5, 4, 9, 6], 4)
-    print(result)
+    r = s.mostCompetitive([3, 5, 2, 6], 2)
+    print(r)
+    r = s.mostCompetitive([2, 4, 3, 3, 5, 4, 9, 6], 4)
+    print(r)

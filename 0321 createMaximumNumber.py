@@ -75,9 +75,9 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
-    result = s.maxNumber([3, 4, 6, 5], [9, 1, 2, 5, 8, 3], 5)
-    print(result)
-    result = s.maxNumber([6, 7], [6, 0, 4], 5)
-    print(result)
-    result = s.maxNumber([3, 9], [8, 9], 3)
-    print(result)
+    r = s.maxNumber([3, 4, 6, 5], [9, 1, 2, 5, 8, 3], 5)
+    print(r)
+    r = s.maxNumber([6, 7], [6, 0, 4], 5)
+    print(r)
+    r = s.maxNumber([3, 9], [8, 9], 3)
+    print(r)

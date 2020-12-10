@@ -45,9 +45,9 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
-    result = s.removeKdigits('1432219', 3)
-    print(result)
-    result = s.removeKdigits('10200', 1)
-    print(result)
-    result = s.removeKdigits('10', 2)
-    print(result)
+    r = s.removeKdigits('1432219', 3)
+    print(r)
+    r = s.removeKdigits('10200', 1)
+    print(r)
+    r = s.removeKdigits('10', 2)
+    print(r)

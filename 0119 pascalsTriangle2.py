@@ -30,5 +30,5 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
-    result = s.getRow(3)
-    print(result)
+    r = s.getRow(3)
+    print(r)

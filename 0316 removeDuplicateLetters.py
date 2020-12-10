@@ -43,7 +43,7 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
-    result = s.removeDuplicateLetters('bcabc')
-    print(result)
-    result = s.removeDuplicateLetters('cbacdcbc')
-    print(result)
+    r = s.removeDuplicateLetters('bcabc')
+    print(r)
+    r = s.removeDuplicateLetters('cbacdcbc')
+    print(r)

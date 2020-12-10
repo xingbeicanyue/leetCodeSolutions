@@ -51,9 +51,9 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
-    result = s.monotoneIncreasingDigits(10)
-    print(result)
-    result = s.monotoneIncreasingDigits(1234)
-    print(result)
-    result = s.monotoneIncreasingDigits(332)
-    print(result)
+    r = s.monotoneIncreasingDigits(10)
+    print(r)
+    r = s.monotoneIncreasingDigits(1234)
+    print(r)
+    r = s.monotoneIncreasingDigits(332)
+    print(r)

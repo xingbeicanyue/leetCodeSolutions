@@ -34,5 +34,5 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
-    result = s.generate(5)
-    print(result)
+    r = s.generate(5)
+    print(r)

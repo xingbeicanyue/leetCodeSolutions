@@ -44,5 +44,5 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
-    result = s.matrixScore([[0, 0, 1, 1], [1, 0, 1, 0], [1, 1, 0, 0]])
-    print(result)
+    r = s.matrixScore([[0, 0, 1, 1], [1, 0, 1, 0], [1, 1, 0, 0]])
+    print(r)

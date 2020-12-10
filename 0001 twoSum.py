@@ -28,5 +28,5 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
-    result = s.twoSum([2, 7, 11, 15], 9)
-    print(result)
+    r = s.twoSum([2, 7, 11, 15], 9)
+    print(r)

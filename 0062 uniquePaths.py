@@ -51,7 +51,7 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
-    result = s.uniquePaths(3, 2)
-    print(result)
-    result = s.uniquePaths(7, 3)
-    print(result)
+    r = s.uniquePaths(3, 2)
+    print(r)
+    r = s.uniquePaths(7, 3)
+    print(r)
