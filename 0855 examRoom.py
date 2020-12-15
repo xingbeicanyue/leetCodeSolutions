@@ -33,18 +33,39 @@ seat() -> 5，学生最后坐在 5 号座位上。
 标签：Ordered Map
 """
 
+from bisect import bisect_left
+
 
 class ExamRoom:
 
     def __init__(self, N: int):
         self._n = N
-        
+        self._seats = []  # [有人坐下的位置]
 
     def seat(self) -> int:
-        pass
+        seats = self._seats
+        if len(seats) == 0:
+            seats.append(0)
+            return 0
+        # 找到距离最远且最靠左的位置
+        if seats[0] == 0:
+            bestDist, bestIdx = 0, -1
+        else:
+            bestDist, bestIdx = self._seats[0], 0
+        for i in range(1, len(seats)):
+            curDist = (seats[i] - seats[i - 1]) // 2
+            if curDist > bestDist:
+                bestDist, bestIdx = curDist, seats[i - 1] + curDist
+        if seats[-1] < self._n - 1:
+            curDist = self._n - 1 - seats[-1]
+            if curDist > bestDist:
+                bestDist, bestIdx = curDist, self._n - 1
+        # 更新数据
+        seats.insert(bisect_left(seats, bestIdx), bestIdx)
+        return bestIdx
 
     def leave(self, p: int) -> None:
-        pass
+        self._seats.remove(p)
 
 
 if __name__ == '__main__':
