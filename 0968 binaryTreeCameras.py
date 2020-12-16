@@ -49,7 +49,7 @@ class TreeNode:
 class Solution:
     def minCameraCover(self, root: TreeNode) -> int:
 
-        def traversal(node) -> int:
+        def traversal(node: TreeNode) -> int:
             """ 迭代后序遍历
             :returns: 0:没有被监控到; 1:被其他摄像头监控到; 2:自己安装了摄像头
             """
@@ -73,13 +73,6 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
-
-    nodes = [TreeNode(0) for _ in range(5)]
-    nodes[0].left, nodes[0].right = None, nodes[1]
-    nodes[1].left, nodes[1].right = None, nodes[2]
-    nodes[2].left, nodes[2].right = None, nodes[3]
-    r = s.minCameraCover(nodes[0])
-    print(r)
 
     nodes = [TreeNode(0) for _ in range(5)]
     nodes[0].left, nodes[0].right = nodes[1], None
