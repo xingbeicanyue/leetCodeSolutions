@@ -22,9 +22,11 @@
 标签：排序、Ordered Map
 """
 
+from typing import List
+
 
 class Solution:
-    def containsNearbyAlmostDuplicate(self, nums: list, k: int, t: int) -> bool:
+    def containsNearbyAlmostDuplicate(self, nums: List[int], k: int, t: int) -> bool:
 
         def checkAndAdd(num: int) -> bool:
             """ 检查是否有相近数字并加入当前数字至字典中 """

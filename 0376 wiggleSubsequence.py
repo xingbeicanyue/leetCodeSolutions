@@ -32,9 +32,11 @@
 标签：贪心算法、动态规划
 """
 
+from typing import List
+
 
 class Solution:
-    def wiggleMaxLength(self, nums: list) -> int:
+    def wiggleMaxLength(self, nums: List[int]) -> int:
         # 非严格单调递增或递减区域数+1 即为所求
         if len(nums) < 2:
             return len(nums)

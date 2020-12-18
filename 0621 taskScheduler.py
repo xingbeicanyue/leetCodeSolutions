@@ -42,15 +42,17 @@
 标签：贪心算法、队列、数组
 """
 
+from collections import Counter
+from typing import List
+
 
 class Solution:
-    def leastInterval(self, tasks: list, n: int) -> int:
+    def leastInterval(self, tasks: List[str], n: int) -> int:
         # 找到次数最多的任务，次数为maxNum，构造 maxNum * (n+1) 的矩阵
         # CPU在矩阵中按行从上往下，行内从左往右依次执行
         # 将所有次数为maxNum的任务依次从左往右逐个占据矩阵的一列
         # 剩余任务填满除矩阵最后一行外的剩余空间
         # 如果填满则表示没有空闲时间，用时即为任务数；如果未填满则表示最后一行的最后一个任务为全局的最后一个任务
-        from collections import Counter
         taskCounter = Counter(tasks)
         maxNum = max(taskCounter.values())  # 任务最大次数
         maxCount = list(taskCounter.values()).count(maxNum)  # 达到最大次数的任务数

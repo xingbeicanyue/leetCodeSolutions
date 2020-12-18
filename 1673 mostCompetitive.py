@@ -26,9 +26,11 @@
 标签：栈、贪心算法
 """
 
+from typing import List
+
 
 class Solution:
-    def mostCompetitive(self, nums: list, k: int) -> list:
+    def mostCompetitive(self, nums: List[int], k: int) -> List[int]:
         # 思路同#402
         result = []
         removeCount = len(nums) - k

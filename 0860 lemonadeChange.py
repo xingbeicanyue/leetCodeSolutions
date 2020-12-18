@@ -43,9 +43,11 @@
 标签：贪心算法
 """
 
+from typing import List
+
 
 class Solution:
-    def lemonadeChange(self, bills: list) -> bool:
+    def lemonadeChange(self, bills: List[int]) -> bool:
         count5, count10 = 0, 0  # 5|10美元数量
         for bill in bills:
             if bill == 5:

@@ -28,6 +28,9 @@ Target = 28
 标签：树
 """
 
+from bisect import bisect_right
+from typing import List
+
 
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -41,7 +44,7 @@ class Solution:
         # 思路
         # 将二叉查找树中序遍历为有序列表，再使用#167的方法
 
-        def inorderTraversal(node: TreeNode, result: list):
+        def inorderTraversal(node: TreeNode, result: List[int]):
             """ 二叉查找树中序遍历 """
             if node is None:
                 return
@@ -53,8 +56,7 @@ class Solution:
         inorderTraversal(root, numbers)
         if len(numbers) < 2:
             return False
-        import bisect
-        leftIdx, rightIdx = 0, min(len(numbers) - 1, bisect.bisect_right(numbers, k - numbers[0]))
+        leftIdx, rightIdx = 0, min(len(numbers) - 1, bisect_right(numbers, k - numbers[0]))
         while leftIdx < rightIdx:
             sum_ = numbers[leftIdx] + numbers[rightIdx]
             if sum_ < k:

@@ -39,6 +39,8 @@ Dota2 参议院由来自两派的参议员组成。现在参议院希望对一�
 标签：贪心算法
 """
 
+from typing import List
+
 
 class Solution:
     def predictPartyVictory(self, senate: str) -> str:
@@ -52,7 +54,7 @@ class Solution:
             elif result < 0:
                 return 'Dire'
 
-    def oneTurn(self, nums: list) -> int:
+    def oneTurn(self, nums: List[int]) -> int:
         """ 行动一轮
         :returns: 正数:R获胜; 负数:D获胜; 0:继续下一轮
         """

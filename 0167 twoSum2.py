@@ -18,12 +18,14 @@
 标签：数组、双指针、二分查找
 """
 
+from bisect import bisect_right
+from typing import List
+
 
 class Solution:
-    def twoSum(self, numbers: list, target: int) -> list:
-        import bisect
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
         # 通过二分查找通常可以提速，注意存在相同元素的情况
-        leftIdx, rightIdx = 0, min(len(numbers) - 1, bisect.bisect_right(numbers, target - numbers[0]))
+        leftIdx, rightIdx = 0, min(len(numbers) - 1, bisect_right(numbers, target - numbers[0]))
         while leftIdx < rightIdx:
             sum_ = numbers[leftIdx] + numbers[rightIdx]
             if sum_ < target:

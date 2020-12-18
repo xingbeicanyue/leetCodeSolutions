@@ -21,9 +21,11 @@
 标签：数组、哈希表
 """
 
+from typing import List
+
 
 class Solution:
-    def containsNearbyDuplicate(self, nums: list, k: int) -> bool:
+    def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
         numSet = set()
         windowWidth = k + 1
         for i in range(min(windowWidth, len(nums))):

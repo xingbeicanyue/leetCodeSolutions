@@ -14,9 +14,11 @@
 标签：数组、哈希表
 """
 
+from typing import List
+
 
 class Solution:
-    def twoSum(self, nums: list, target: int) -> list:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
         numIdxDic = {}  # {数值 : 下标}
         for i, num in enumerate(nums):
             other = target - num

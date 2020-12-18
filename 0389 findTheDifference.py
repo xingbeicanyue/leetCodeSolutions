@@ -32,10 +32,11 @@
 标签：位运算、哈希表
 """
 
+from functools import reduce
+
 
 class Solution:
     def findTheDifference(self, s: str, t: str) -> str:
-        from functools import reduce
         return chr(reduce(lambda x, y: x ^ ord(y), s + t, 0))
 
 

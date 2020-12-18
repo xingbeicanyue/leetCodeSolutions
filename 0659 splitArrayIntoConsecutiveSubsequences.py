@@ -32,9 +32,11 @@
 标签：堆、贪心算法
 """
 
+from typing import List
+
 
 class Solution:
-    def isPossible(self, nums: list) -> bool:
+    def isPossible(self, nums: List[int]) -> bool:
         if len(nums) == 0 or nums[-1] - nums[0] < 2:
             return False
 

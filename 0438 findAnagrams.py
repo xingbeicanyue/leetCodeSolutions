@@ -33,14 +33,16 @@ s: "abab" p: "ab"
 标签：哈希表
 """
 
+from collections import Counter
+from typing import List
+
 
 class Solution:
-    def findAnagrams(self, s: str, p: str) -> list:
+    def findAnagrams(self, s: str, p: str) -> List[int]:
         # 滑动窗口，当遇到不需要的字符时可以直接跳过整个窗口
         sLen, pLen = len(s), len(p)
         if sLen < pLen:
             return []
-        from collections import Counter
         result = []
         pCharCounter, sCharCounter = Counter(p), Counter(s[:pLen])
         if pCharCounter == sCharCounter:

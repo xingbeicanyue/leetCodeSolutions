@@ -36,12 +36,14 @@ k = 3
 标签：贪心算法、动态规划
 """
 
+from collections import deque
+from typing import Deque, List
+
 
 class Solution:
-    def maxNumber(self, nums1: list, nums2: list, k: int) -> list:
-        from collections import deque
+    def maxNumber(self, nums1: List[int], nums2: List[int], k: int) -> List[int]:
 
-        def maxSubNumber(nums: list, k: int) -> deque:
+        def maxSubNumber(nums: List[int], k: int) -> Deque[int]:
             """ 返回由nums中元素组成的最大k位数字，且相对位置不变
                 如：maxSubNumber([1, 5, 2, 3, 4], 3) -> [5, 3, 4]
             """
@@ -56,7 +58,7 @@ class Solution:
             del result[k:]
             return deque(result)
 
-        def merge(nums1: deque, nums2: deque) -> list:
+        def merge(nums1: Deque[int], nums2: Deque[int]) -> List[int]:
             """ 合并两个数字，返回满足下述条件的最大数字
                * 由两个数字的所有位组成，即长度为两者之和
                * 每个数字中每位的相对位置不变

@@ -16,9 +16,11 @@
 标签：数组
 """
 
+from typing import List
+
 
 class Solution:
-    def getRow(self, rowIndex: int) -> list:
+    def getRow(self, rowIndex: int) -> List[int]:
         # 优先降低空间复杂度，只用长度为rowIndex+1的列表
         # 其实每个位置的值都有公式，不需要双层循环
         result = [1] * (rowIndex + 1)

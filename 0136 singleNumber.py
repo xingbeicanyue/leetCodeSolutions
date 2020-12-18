@@ -19,10 +19,12 @@
 标签：位运算、哈希表
 """
 
+from functools import reduce
+from typing import List
+
 
 class Solution:
-    def singleNumber(self, nums: list) -> int:
-        from functools import reduce
+    def singleNumber(self, nums: List[int]) -> int:
         return reduce(lambda x, y: x ^ y, nums)
 
 

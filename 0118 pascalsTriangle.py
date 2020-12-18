@@ -20,9 +20,11 @@
 标签：数组
 """
 
+from typing import List
+
 
 class Solution:
-    def generate(self, numRows: int) -> list:
+    def generate(self, numRows: int) -> List[List[int]]:
         if numRows == 0:
             return []
         result = [[1] * (i + 1) for i in range(numRows)]

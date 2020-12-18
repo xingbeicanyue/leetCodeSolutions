@@ -40,9 +40,11 @@
 标签：深度优先搜索，回溯算法
 """
 
+from typing import List
+
 
 class Solution:
-    def uniquePathsIII(self, grid: list) -> int:
+    def uniquePathsIII(self, grid: List[List[int]]) -> int:
 
         def visit(rowIdx: int, colIdx: int, toVisitCount: int) -> int:
             """ 访问一个方格

@@ -23,9 +23,11 @@
 标签：贪心算法
 """
 
+from typing import List
+
 
 class Solution:
-    def matrixScore(self, A: list) -> int:
+    def matrixScore(self, A: List[List[int]]) -> int:
         counts = [0] * len(A[0])  # 将首列全部调整为1后 每一列1的个数
         for row in A:
             if row[0] == 0:

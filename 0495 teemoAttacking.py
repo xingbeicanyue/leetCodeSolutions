@@ -29,9 +29,11 @@
 标签：数组
 """
 
+from typing import List
+
 
 class Solution:
-    def findPoisonedDuration(self, timeSeries: list, duration: int) -> int:
+    def findPoisonedDuration(self, timeSeries: List[int], duration: int) -> int:
         return sum(min(timeSeries[i] - timeSeries[i - 1], duration) for i in range(1, len(timeSeries))) +\
                (len(timeSeries) > 0) * duration
 

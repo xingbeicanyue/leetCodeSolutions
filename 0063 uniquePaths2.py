@@ -51,9 +51,11 @@
 标签：数组、动态规划
 """
 
+from typing import List
+
 
 class Solution:
-    def uniquePathsWithObstacles(self, obstacleGrid: list) -> int:
+    def uniquePathsWithObstacles(self, obstacleGrid: List[List[int]]) -> int:
         if obstacleGrid[0][0] == 1:
             return 0
         pathCountss = [[1] * len(obstacleGrid[0]) for _ in range(len(obstacleGrid))]

@@ -21,9 +21,11 @@
 标签：数组、哈希表
 """
 
+from typing import List
+
 
 class Solution:
-    def containsDuplicate(self, nums: list) -> bool:
+    def containsDuplicate(self, nums: List[int]) -> bool:
         numSet = set()
         for num in nums:
             if num in numSet:

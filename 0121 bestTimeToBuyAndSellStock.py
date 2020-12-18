@@ -21,9 +21,11 @@
 标签：数组、动态规划
 """
 
+from typing import List
+
 
 class Solution:
-    def maxProfit(self, prices: list) -> int:
+    def maxProfit(self, prices: List[int]) -> int:
         result, acc = 0, 0
         for i in range(1, len(prices)):
             acc += prices[i] - prices[i - 1]

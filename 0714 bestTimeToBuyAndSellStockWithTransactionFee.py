@@ -26,9 +26,11 @@
 标签：贪心算法、数组、动态规划
 """
 
+from typing import List
+
 
 class Solution:
-    def maxProfit(self, prices: list, fee: int) -> int:
+    def maxProfit(self, prices: List[int], fee: int) -> int:
         if len(prices) <= 1:
             return 0
         result = 0

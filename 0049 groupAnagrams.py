@@ -21,9 +21,11 @@
 标签：哈希表、字符串
 """
 
+from typing import List
+
 
 class Solution:
-    def groupAnagrams(self, strs: list) -> list:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         sortedStrs = {}  # {按字符排序的单词 : 原单词}
         for word in strs:
             sortedStrs.setdefault(''.join(sorted(word)), []).append(word)

@@ -41,9 +41,11 @@
 标签：贪心算法、字符串、回溯算法
 """
 
+from typing import List
+
 
 class Solution:
-    def splitIntoFibonacci(self, S: str) -> list:
+    def splitIntoFibonacci(self, S: str) -> List[int]:
         if len(S) < 3:
             return []
         for i in range(1, min((len(S) - 1) // 2, 10) + 1):  # 最多10位，并且不会超过字符串长度的一半，下同
@@ -60,7 +62,7 @@ class Solution:
                     return result
         return []
 
-    def checkFibonacci(self, S: str, number1: int, number2: int, sIdx: int) -> list:
+    def checkFibonacci(self, S: str, number1: int, number2: int, sIdx: int) -> List[int]:
         """ 检查是否符合斐波那契数列
         :param S: 待检查的数字字符串
         :param number1: 斐波那契数列第一项
