@@ -68,6 +68,7 @@ class Solution:
 
 
 def printTree(node: TreeNode):
+    """ 按前序遍历的顺序输出节点值 """
     print(node.val if node else None, end=', ')
     if node is not None:
         printTree(node.left)
