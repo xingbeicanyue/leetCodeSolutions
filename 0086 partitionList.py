@@ -40,6 +40,7 @@ def printList(node: ListNode):
     while node:
         print(node.val, end=', ')
         node = node.next
+    printList
 
 
 if __name__ == '__main__':
