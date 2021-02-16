@@ -41,7 +41,7 @@ class Solution:
         length = len(heights)
         if length == 0:
             return 0
-        # 计算每根柱子向左/右拓展的范围（保持柱子高度不变）
+        # 计算每根柱子向左/右拓展的范围 -> lefts, rights
         lefts, rights = [-1] * length, [length] * length  # 可以不需要rights
         limits = []  # 单调递增的栈，记录不同高度的边界下标
         for i in range(length):
