@@ -34,7 +34,18 @@ from typing import List
 
 class Solution:
     def maxCoins(self, nums: List[int]) -> int:
-        pass
+        # 动态规划：
+        # 在[a, b]中分别以每个气球为最后一个戳破的气球，求所有情况中的最大值
+        # 即nums[a, b]的最大硬币数为 max(nums[a,k-1] + nums[k+1,b] + nums[k]*nums[a-1]*nums[b+1]) (a<=k<=b)
+        nums = [1] + nums + [1]
+        length = len(nums)
+        maxCoinsTable = [[0] * length for _ in range(length)]
+        for i in range(1, length - 1):  # 每轮计算长度为i的每个区间的最大硬币
+            for j in range(1, length - i):  # 每轮计算区间[j, j+i-1]的最大硬币
+                # 每轮计算k最后一个戳的情况下的最大硬币
+                maxCoinsTable[j][j + i - 1] = max(maxCoinsTable[j][k - 1] + maxCoinsTable[k + 1][j + i - 1] +
+                                                  nums[k] * nums[j - 1] * nums[j + i] for k in range(j, j + i))
+        return maxCoinsTable[1][length - 2]
 
 
 if __name__ == '__main__':
