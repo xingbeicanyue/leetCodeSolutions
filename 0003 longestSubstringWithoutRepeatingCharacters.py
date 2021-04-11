@@ -31,29 +31,49 @@
 链接：https://leetcode-cn.com/problems/longest-substring-without-repeating-characters
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
-标签：哈希表、双指针、字符串、Sliding Window
+标签：动态规划、哈希表、滑动窗口
 """
 
 
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        sIdx, result = 0, 0
+        # 方法1：动态规划
+        # 遍历字符串，记录每个字符最后出现的下标
+        # 对于每个下标i，若该字符之前最后出现的下标为j，则以i为结尾的最长子串M(i) = min(i-j, M(i-1)+1)
         lastPosDict = {}  # {字符: 最后出现的下标}
+        result = curRes = 0
         for i, c in enumerate(s):
-            if c in lastPosDict and lastPosDict[c] >= sIdx:
-                result = max(result, i - sIdx)
-                sIdx = lastPosDict[c] + 1
+            curRes = min(i - lastPosDict.get(c, -1), curRes + 1)
+            result = max(result, curRes)
             lastPosDict[c] = i
-        return max(result, len(s) - sIdx)
+        return result
+
+        # 方法2：滑动窗口
+        # 记录窗口中的字符集合，移动右指针，若当前字符在窗口中则移动左指针直至该字符不在窗口中
+        # 优化：如果记录了每个字符最后出现的下标，则可以直接将左指针跳跃至该下标+1处，不必循环并维护字符集合
+        # 优化后的结果与动态规划相同
+        # result = -1  # 为了减少计算，遍历过程中result的值比最终结果少1
+        # lastPosDict = {}  # {字符: 最后出现的下标}
+        # left = 0
+        # for right, c in enumerate(s):
+        #     if c in lastPosDict:  # 当前字符在窗口中，右移左指针
+        #         left = max(left, lastPosDict[c] + 1)
+        #     result = max(result, right - left)
+        #     lastPosDict[c] = right
+        # return result + 1
 
 
 if __name__ == '__main__':
     s = Solution()
+
     r = s.lengthOfLongestSubstring('abcabcbb')
     print(r)
+
     r = s.lengthOfLongestSubstring('bbbbb')
     print(r)
+
     r = s.lengthOfLongestSubstring('pwwkew')
     print(r)
+
     r = s.lengthOfLongestSubstring('')
     print(r)

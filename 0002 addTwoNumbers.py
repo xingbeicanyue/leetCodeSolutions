@@ -30,7 +30,7 @@
 链接：https://leetcode-cn.com/problems/add-two-numbers
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
-标签：链表、数学
+标签：链表
 """
 
 
@@ -42,6 +42,7 @@ class ListNode:
 
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+        # 模拟加法竖式，从个位（链表头）开始逐次计算每位的和并设置进位符号
         result = resultTail = ListNode(0)
         carryFlag = 0  # 进位符
         while l1 or l2:

@@ -13,7 +13,7 @@
 链接：https://leetcode-cn.com/problems/two-sum
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
-标签：数组、哈希表
+标签：哈希表
 """
 
 from typing import List
@@ -21,7 +21,8 @@ from typing import List
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        numIdxDic = {}  # {数值 : 下标}
+        # 遍历数组，并将元素及下标存入字典中，若当前元素为num且字典中存在target-num则找到答案
+        numIdxDic = {}  # {数值: 下标}
         for i, num in enumerate(nums):
             other = target - num
             if other in numIdxDic:
@@ -32,5 +33,6 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
+
     r = s.twoSum([2, 7, 11, 15], 9)
     print(r)
