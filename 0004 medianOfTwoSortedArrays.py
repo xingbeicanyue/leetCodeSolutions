@@ -39,7 +39,7 @@
 链接：https://leetcode-cn.com/problems/median-of-two-sorted-arrays
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
-标签：数组、二分查找、分治算法
+标签：分治
 """
 
 from typing import List
@@ -47,11 +47,18 @@ from typing import List
 
 class Solution:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+        # 若nums1有m个数字，nums2有n个数字，此问题等价于找第(m+n)/2大的数字（理想情况，不考虑不能被2整除的问题）
+        # 使用二分，每次（第k次，从1开始）排除(m+n)/2^(k+1)个数字
+        # 第一次排除(m+n)/4个数字，比较a=nums1[(m+n)/4] 与 b=nums2[(m+n)/4]
+        # 若a<=b，则表示a必然>=nums1中比a小的数，且a可能>=nums2中比b小的数，因此nums1中比a小的数不可能是中位数
+        # 第二次排除(m+n)/8个数字，比较nums1[(m+n)/4+(m+n)/8] 与 nums2[(m+n)/8]，以此类推，最终总共排除(m+n)/2个数组
+        # 如果某次比较的数字已超出某数组范围，则中位数必然在另一个数组中
+        # 时间复杂度：O(lg(m+n))
         len1, len2 = len(nums1), len(nums2)
         if len1 > len2:  # 保证nums1长度<=nums2
             nums1, nums2, len1, len2 = nums2, nums1, len2, len1
-        sideCount = (len1 + len2 - 1) // 2  # 平均数左侧的数字数，不断减少至0后left1、left2即为中位数的位置
-        left1 = left2 = 0
+        sideCount = (len1 + len2 - 1) // 2  # 平均数左侧未排除的数字数，不断减少至0后left1、left2即为中位数的位置
+        left1 = left2 = 0  # 两个数组中该下标的左侧为已排除的数字
         while sideCount > 0 and left1 < len1:
             off = (sideCount - 1) // 2
             if left1 + off >= len1:
@@ -80,13 +87,18 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
+
     r = s.findMedianSortedArrays([1, 3], [2])
     print(r)
+
     r = s.findMedianSortedArrays([1, 2], [3, 4])
     print(r)
+
     r = s.findMedianSortedArrays([0, 0], [0, 0])
     print(r)
+
     r = s.findMedianSortedArrays([], [1])
     print(r)
+
     r = s.findMedianSortedArrays([2], [])
     print(r)
