@@ -16,6 +16,11 @@
 输入：s = "a", t = "a"
 输出："a"
 
+示例 3:
+输入: s = "a", t = "aa"
+输出: ""
+解释: t 中两个字符 'a' 均应包含在 s 的子串中，因此没有符合条件的子字符串，返回空字符串。
+
 提示：
 * 1 <= s.length, t.length <= 10^5
 * s 和 t 由英文字母组成
@@ -35,6 +40,10 @@ from collections import defaultdict
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
         # 滑动窗口
+        # 左右指针从0开始向右移动，右指针移动至完全涵盖t为止，期间用计数字典统计字符的数量
+        # 然后左指针移动至刚好无法涵盖t为止，则[左指针-1, 右指针]的区间为以右指针为结尾的最小涵盖子串
+        # 然后再循环移动右指针和左指针，每次循环都可以得到1个最小涵盖子串，选取最小子串即可
+        # 时间复杂度：θ(n)
         if len(s) < len(t):
             return ''
         minSubstrSIdx, minLen_2 = -1, len(s)
@@ -58,7 +67,12 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
+
     r = s.minWindow('ADOBECODEBANC', 'ABC')
     print(r)
+
     r = s.minWindow('a', 'a')
+    print(r)
+
+    r = s.minWindow('a', 'aa')
     print(r)
