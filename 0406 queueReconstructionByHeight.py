@@ -3,7 +3,7 @@
 
 假设有打乱顺序的一群人站成一个队列，数组 people 表示队列中一些人的属性（不一定按顺序）。
 每个 people[i] = [hi, ki] 表示第 i 个人的身高为 hi ，前面正好有 ki 个身高大于或等于 hi 的人。
-请你重新构造并返回输入数组 people 所表示的队列。
+请你重新构造并返回输入数组 people 所表示的队列。
 返回的队列应该格式化为数组 queue ，其中 queue[j] = [hj, kj] 是队列中第 j 个人的属性（queue[0] 是排在队列前面的人）。
 
 示例 1：
@@ -32,7 +32,7 @@
 链接：https://leetcode-cn.com/problems/queue-reconstruction-by-height
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
-标签：贪心算法
+标签：贪心、数组、排序
 """
 
 from typing import List
@@ -40,6 +40,9 @@ from typing import List
 
 class Solution:
     def reconstructQueue(self, people: List[List[int]]) -> List[List[int]]:
+        # 按身高从大到小排，相同身高按队列次序排
+        # 依次处理每个身高的人，因为之后身高都比当前者矮，他们的位置影响不到当前者，
+        # 只需把当前者按照队列次序插入至当前队伍对应的位置中即可
         result = []
         sortedPeople = sorted(people, key=lambda x: (-x[0], x[1]))
         for p in sortedPeople:
@@ -49,7 +52,9 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
+
     r = s.reconstructQueue([[7, 0], [4, 4], [7, 1], [5, 0], [6, 1], [5, 2]])
     print(r)
+
     r = s.reconstructQueue([[6, 0], [5, 0], [4, 0], [3, 2], [2, 2], [1, 4]])
     print(r)
