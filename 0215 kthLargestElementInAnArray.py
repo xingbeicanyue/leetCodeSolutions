@@ -7,18 +7,19 @@
 输入: [3,2,1,5,6,4] 和 k = 2
 输出: 5
 
-示例 2:
+示例 2:
 输入: [3,2,3,1,2,4,5,5,6] 和 k = 4
 输出: 4
 
-说明:
-你可以假设 k 总是有效的，且 1 ≤ k ≤ 数组的长度。
+提示：
+* 1 <= k <= nums.length <= 10^4
+* -10^4 <= nums[i] <= 10^4
 
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/kth-largest-element-in-an-array
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
-标签：堆、分治算法
+标签：数组、分治、快速选择、排序、堆
 """
 
 from heapq import heapify, heappop, heappushpop
@@ -47,9 +48,35 @@ class Solution:
         # return -heap[0]
 
 
+        # 方法3：
+        # 快速选择
+        # 最低时间复杂度：O(n^2)  平均时间复杂度：θ(n)
+        # def fastChoose(left, right, k: int):
+        #     key = nums[left]
+        #     left2, right2 = left, right
+        #     while left2 < right2:
+        #         while left2 < right2 and nums[right2] >= key:
+        #             right2 -= 1
+        #         nums[left2] = nums[right2]
+        #         while left2 < right2 and nums[left2] < key:
+        #             left2 += 1
+        #         nums[right2] = nums[left2]
+        #     nums[left2] = key
+        #     topN = right - left2 + 1  # key是[left, right]中的第几大元素
+        #     if topN == k:
+        #         return key
+        #     elif topN > k:
+        #         return fastChoose(left2 + 1, right, k)
+        #     else:
+        #         return fastChoose(left, left2 - 1, k - topN)
+        # return fastChoose(0, len(nums) - 1, k)
+
+
 if __name__ == '__main__':
     s = Solution()
+
     r = s.findKthLargest([3, 2, 1, 5, 6, 4], 2)
     print(r)
+
     r = s.findKthLargest([3, 2, 3, 1, 2, 4, 5, 5, 6], 4)
     print(r)

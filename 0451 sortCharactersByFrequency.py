@@ -47,9 +47,12 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
+
     r = s.frequencySort('tree')
     print(r)
+
     r = s.frequencySort('cccaaa')
     print(r)
+
     r = s.frequencySort('Aabb')
     print(r)
