@@ -28,7 +28,7 @@
 链接：https://leetcode-cn.com/problems/number-of-provinces
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
-标签：深度优先搜索、并查集
+标签：深度优先搜索、广度优先遍历、并查集、图
 """
 
 from typing import List
@@ -36,13 +36,16 @@ from typing import List
 
 class Solution:
     def findCircleNum(self, isConnected: List[List[int]]) -> int:
-        visiteds, result = [False] * len(isConnected), 0
-        for i in range(len(visiteds)):
+        n = len(isConnected)
+        result = 0
+        visiteds = [False] * n
+        for i in range(n):
             if visiteds[i]:
                 continue
             result += 1
-            visiteds[i], idxs = True, [i]
-            while idxs:  # 广度优先遍历
+            visiteds[i] = True
+            idxs = [i]
+            while idxs:  # 深度优先遍历
                 curIdx = idxs.pop()
                 for j, connected in enumerate(isConnected[curIdx]):
                     if connected and not visiteds[j]:
@@ -53,7 +56,9 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
+
     r = s.findCircleNum([[1, 1, 0], [1, 1, 0], [0, 0, 1]])
     print(r)
+
     r = s.findCircleNum([[1, 0, 0], [0, 1, 0], [0, 0, 1]])
     print(r)

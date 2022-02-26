@@ -19,7 +19,7 @@
 链接：https://leetcode-cn.com/problems/permutations
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
-标签：回溯算法
+标签：数组、回溯
 """
 
 from itertools import permutations
@@ -33,5 +33,6 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
+
     r = s.permute([1, 2, 3])
     print(r)

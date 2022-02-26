@@ -26,7 +26,7 @@ board =
 链接：https://leetcode-cn.com/problems/word-search
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
-标签：数组、回溯算法
+标签：数组、回溯、矩阵
 """
 
 from typing import List
@@ -34,45 +34,24 @@ from typing import List
 
 class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
-
-        def searchOnDir(cIdx: int, rowIdx: int, colIdx: int) -> bool:
-            """ 探索一个方向 """
-            if canVisitedss[rowIdx][colIdx] and board[rowIdx][colIdx] == word[cIdx]:
-                canVisitedss[rowIdx][colIdx] = False
-                if dfs(cIdx + 1, rowIdx, colIdx):
-                    return True
-                canVisitedss[rowIdx][colIdx] = True
-            return False
-
         def dfs(cIdx: int, rowIdx: int, colIdx: int) -> bool:
-            """ 深度优先搜索，探索一个字符 """
-            if cIdx >= len(word):  # 已全部匹配
+            """ 匹配字符word[cIdx] """
+            if visitedss[rowIdx][colIdx] or board[rowIdx][colIdx] != word[cIdx]:
+                return False
+            cIdx += 1
+            if cIdx == len(word):  # 已全部匹配
                 return True
-            rowIdx -= 1
-            if rowIdx >= 0 and searchOnDir(cIdx, rowIdx, colIdx):
-                return True
-            rowIdx += 2
-            if rowIdx < rowCount and searchOnDir(cIdx, rowIdx, colIdx):
-                return True
-            rowIdx -= 1
-            colIdx -= 1
-            if colIdx >= 0 and searchOnDir(cIdx, rowIdx, colIdx):
-                return True
-            colIdx += 2
-            if colIdx < colCount and searchOnDir(cIdx, rowIdx, colIdx):
-                return True
-            return False
+            visitedss[rowIdx][colIdx] = True
+            result = (rowIdx > 0 and dfs(cIdx, rowIdx - 1, colIdx)) or\
+                     (rowIdx < height - 1) and dfs(cIdx, rowIdx + 1, colIdx) or\
+                     (colIdx > 0 and dfs(cIdx, rowIdx, colIdx - 1)) or\
+                     (colIdx < width - 1 and dfs(cIdx, rowIdx, colIdx + 1))
+            visitedss[rowIdx][colIdx] = False
+            return result
 
-        rowCount, colCount = len(board), len(board[0])
-        canVisitedss = [[True] * colCount for _ in range(rowCount)]
-        for i, row in enumerate(board):
-            for j, c in enumerate(row):
-                if c == word[0]:
-                    canVisitedss[i][j] = False
-                    if dfs(1, i, j):
-                        return True
-                    canVisitedss[i][j] = True
-        return False
+        height, width = len(board), len(board[0])
+        visitedss = [[False] * width for _ in range(height)]
+        return any(dfs(0, i, j) for i in range(height) for j in range(width))
 
 
 if __name__ == '__main__':
@@ -82,9 +61,12 @@ if __name__ == '__main__':
         ['S', 'F', 'C', 'S'],
         ['A', 'D', 'E', 'E']
     ]
+
     r = s.exist(board, 'ABCCED')
     print(r)
+
     r = s.exist(board, 'SEE')
     print(r)
+
     r = s.exist(board, 'ABCB')
     print(r)
