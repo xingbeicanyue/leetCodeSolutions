@@ -1,7 +1,7 @@
 """
 爬楼梯
 
-假设你正在爬楼梯。需要 n 阶你才能到达楼顶。
+假设你正在爬楼梯。需要 n 阶你才能到达楼顶。
 每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？
 注意：给定 n 是一个正整数。
 
@@ -24,7 +24,7 @@
 链接：https://leetcode-cn.com/problems/climbing-stairs
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
-标签：动态规划
+标签：记忆化搜索、数学、动态规划
 """
 
 
@@ -38,7 +38,9 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
+
     r = s.climbStairs(2)
     print(r)
+
     r = s.climbStairs(3)
     print(r)
