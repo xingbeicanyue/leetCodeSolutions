@@ -25,7 +25,7 @@
 链接：https://leetcode-cn.com/problems/maximal-square
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
-标签：动态规划
+标签：数组、动态规划、矩阵
 """
 
 from typing import List
@@ -35,6 +35,7 @@ class Solution:
     def maximalSquare(self, matrix: List[List[str]]) -> int:
         # 方法1：
         # 动态规划
+        # 设S(i,j)为以matrix[i][j]为右下角的最大正方形边长，则S(i,j) = min(S(i-1,j) + S(i,j-1) + S(i-1,j-1)) + 1
         result, width = 0, len(matrix[0])
         lastMaxSideLen = [0] * width  # [上一行 以该坐标为右下角的最大正方形边长]
         for i, row in enumerate(matrix):
@@ -49,7 +50,7 @@ class Solution:
 
 
         # 方法2：
-        # 类似#85的思路，逐行求向上的最长连通数，然后求最大矩形面积
+        # 类似#85的思路，逐行求向上的最长连通数，然后求最大正方形面积
         # result, width = 0, len(matrix[0])
         # lastHeights = [0] * width  # [上一行向上最长连通数]
         # for row in matrix:
@@ -72,10 +73,13 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
+
     r = s.maximalSquare(
         [["1", "0", "1", "0", "0"], ["1", "0", "1", "1", "1"], ["1", "1", "1", "1", "1"], ["1", "0", "0", "1", "0"]])
     print(r)
+
     r = s.maximalSquare([["0", "1"], ["1", "0"]])
     print(r)
+
     r = s.maximalSquare([["0"]])
     print(r)
