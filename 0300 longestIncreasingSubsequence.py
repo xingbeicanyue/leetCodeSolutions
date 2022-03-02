@@ -24,13 +24,13 @@
 
 进阶：
 * 你可以设计时间复杂度为 O(n^2) 的解决方案吗？
-* 你能将算法的时间复杂度降低到 O(n log(n)) 吗?
+* 你能将算法的时间复杂度降低到 O(n log(n)) 吗?
 
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/longest-increasing-subsequence
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
-标签：二分查找、动态规划
+标签：数组、二分查找、动态规划
 """
 
 from bisect import bisect_left
@@ -51,9 +51,12 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
+
     r = s.lengthOfLIS([10, 9, 2, 5, 3, 7, 101, 18])
     print(r)
+
     r = s.lengthOfLIS([0, 1, 0, 3, 2, 3])
     print(r)
+
     r = s.lengthOfLIS([7, 7, 7, 7, 7, 7, 7])
     print(r)
