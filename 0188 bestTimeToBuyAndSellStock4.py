@@ -1,7 +1,7 @@
 """
 买卖股票的最佳时机 IV
 
-给定一个整数数组 prices ，它的第 i 个元素 prices[i] 是一支给定的股票在第 i 天的价格。
+给定一个整数数组 prices ，它的第 i 个元素 prices[i] 是一支给定的股票在第 i 天的价格。
 设计一个算法来计算你所能获取的最大利润。你最多可以完成 k 笔交易。
 注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
 
@@ -33,6 +33,9 @@ from typing import List
 
 class Solution:
     def maxProfit(self, k: int, prices: List[int]) -> int:
+        # 动态规划
+        # 遍历每天的价格，并维护k*2大小的数组s，数组表示第1~k次买入/卖出后的最佳获利
+        # 则若为买入s[i] = max(s[i], s[i] - prices[j])，若为卖出s[i] = max(s[i], s[i] + prices[j]) 其中j为天数
         if k == 0 or len(prices) <= 1:
             return 0
         # [第 idx//2 次买入|卖出的最高收益]
@@ -46,7 +49,9 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
+
     r = s.maxProfit(2, [2, 4, 1])
     print(r)
+
     r = s.maxProfit(2, [3, 2, 6, 5, 0, 3])
     print(r)
