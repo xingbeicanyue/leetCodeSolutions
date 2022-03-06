@@ -1,7 +1,7 @@
 """
 计数质数
 
-统计所有小于非负整数 n 的质数的数量。
+统计所有小于非负整数 n 的质数的数量。
 
 示例 1：
 输入：n = 10
@@ -15,7 +15,7 @@
 示例 3：
 输入：n = 1
 输出：0
- 
+
 提示：
 * 0 <= n <= 5 * 106
 
@@ -23,7 +23,7 @@
 链接：https://leetcode-cn.com/problems/count-primes
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
-标签：哈希表、数学
+标签：数组、数学、枚举、数论
 """
 
 
@@ -49,9 +49,12 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
+
     r = s.countPrimes(10)
     print(r)
+
     r = s.countPrimes(0)
     print(r)
+
     r = s.countPrimes(1)
     print(r)
