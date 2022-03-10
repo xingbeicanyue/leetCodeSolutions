@@ -2,7 +2,7 @@
 最长连续序列
 
 给定一个未排序的整数数组 nums ，找出数字连续的最长序列（不要求序列元素在原数组中连续）的长度。
-进阶：你可以设计并实现时间复杂度为 O(n) 的解决方案吗？
+进阶：你可以设计并实现时间复杂度为 O(n) 的解决方案吗？
 
 示例 1：
 输入：nums = [100,4,200,1,3,2]
@@ -21,7 +21,7 @@
 链接：https://leetcode-cn.com/problems/longest-consecutive-sequence
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
-标签：并查集、数组
+标签：并查集、数组、哈希表
 """
 
 from typing import Dict, List
@@ -47,35 +47,38 @@ class Solution:
         # 方法2：并查集
         # 对访问的数字，分别连接其前后数字，相邻数字即合并为一个群组，最终返回最大群组的元素数
         # disjointSet = {}  # {数字: [父节点数字, 群组元素数（仅根节点有效）]}
+        #
+        # def getRoot(idx: int) -> List[int]:
+        #     """ 获取并查集根节点及群组大小 """
+        #     visiteds = []
+        #     while idx != disjointSet[idx][0]:
+        #         visiteds.append(idx)
+        #         idx = disjointSet[idx][0]
+        #     for visited in visiteds:
+        #         disjointSet[visited][0] = idx
+        #     return disjointSet[idx]
+        #
+        # def connect(idx1: int, idx2: int):
+        #     """ 合并并查集中的两个元素 """
+        #     r1, r2 = getRoot(idx1), getRoot(idx2)
+        #     if r1[0] != r2[0]:
+        #         r2[0], r1[1] = r1[0], r1[1] + r2[1]
+        #
         # for num in nums:
         #     if num not in disjointSet:
         #         disjointSet[num] = [num, 1]
         #     if num - 1 in disjointSet:
-        #         self._connect(disjointSet, num, num - 1)
+        #         connect(num, num - 1)
         #     if num + 1 in disjointSet:
-        #         self._connect(disjointSet, num, num + 1)
+        #         connect(num, num + 1)
         # return max(disjointSet[num][1] for num in disjointSet if num == disjointSet[num][0]) if disjointSet else 0
-
-    def _connect(self, disjointSet: Dict[int, List[int]], idx1: int, idx2: int):
-        """ 合并并查集中的两个元素 """
-        r1, r2 = self._getRoot(disjointSet, idx1), self._getRoot(disjointSet, idx2)
-        if r1[0] != r2[0]:
-            r2[0], r1[1] = r1[0], r1[1] + r2[1]
-
-    def _getRoot(self, disjointSet: Dict[int, List[int]], idx: int) -> List[int]:
-        """ 获取并查集根节点及群组大小 """
-        visiteds = []
-        while idx != disjointSet[idx][0]:
-            visiteds.append(idx)
-            idx = disjointSet[idx][0]
-        for visited in visiteds:
-            disjointSet[visited][0] = idx
-        return disjointSet[idx]
 
 
 if __name__ == '__main__':
     s = Solution()
+
     r = s.longestConsecutive([100, 4, 200, 1, 3, 2])
     print(r)
+
     r = s.longestConsecutive([0, 3, 7, 2, 5, 8, 4, 6, 0, 1])
     print(r)

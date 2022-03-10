@@ -36,34 +36,27 @@
 链接：https://leetcode-cn.com/problems/merge-k-sorted-lists
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 
-标签：堆、链表、分治算法
+标签：链表、分治、堆（优先队列）、归并排序
 """
 
-from queue import PriorityQueue
+from heapq import heapify, heappop, heappush
 from typing import List
-
-
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+from dataStructure import ListNode, printList
 
 
 class Solution:
     def mergeKLists(self, lists: List[ListNode]) -> ListNode:
         # 方法1：优先队列
-        # 不修改节点数据，不创建新节点
-        queue, curNodes = PriorityQueue(), lists[:]  # 优先队列 | [每条链表即将访问的节点]
-        for i, node in enumerate(lists):
-            if node is not None:
-                queue.put((node.val, i))
+        curNodes = lists[:]  # [每条链表即将访问的节点]
+        heap = [(node.val, i) for i, node in enumerate(lists) if node is not None]
+        heapify(heap)
         result = resultTail = ListNode(0)
-        while queue.qsize() > 0:
-            curNodeIdx = queue.get()[1]
+        while len(heap) > 0:
+            curVal, curNodeIdx = heappop(heap)
             curNode = curNodes[curNodeIdx]
             resultTail.next = resultTail = curNode
             if curNode.next is not None:
-                queue.put((curNode.next.val, curNodeIdx))
+                heappush(heap, (curNode.next.val, curNodeIdx))
                 curNodes[curNodeIdx] = curNode.next
         return result.next
 
@@ -91,14 +84,6 @@ class Solution:
         #         nextNodes.append(merge(nodes[i], nodes[i + 1]))
         #     nodes = nextNodes
         # return nodes[0] if nodes else None
-
-
-def printList(node: ListNode):
-    """ 打印链表 """
-    while node:
-        print(node.val, end=', ')
-        node = node.next
-    print()
 
 
 if __name__ == '__main__':
