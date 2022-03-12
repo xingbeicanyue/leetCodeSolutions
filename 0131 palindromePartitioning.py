@@ -15,8 +15,6 @@
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/palindrome-partitioning
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-
-标签：深度优先搜索、动态规划、回溯算法
 """
 
 from typing import List

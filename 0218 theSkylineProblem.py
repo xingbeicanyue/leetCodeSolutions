@@ -34,8 +34,6 @@
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/the-skyline-problem
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-
-标签：树状数组、线段树、数组、分治、有序集合、扫描线、堆（优先队列）
 """
 
 from heapq import heappop, heappush

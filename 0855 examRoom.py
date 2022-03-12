@@ -31,8 +31,6 @@ seat() -> 5，学生最后坐在 5 号座位上。
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/exam-room
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-
-标签：Ordered Map
 """
 
 from bisect import bisect_left

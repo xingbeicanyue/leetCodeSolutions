@@ -20,8 +20,6 @@
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/contains-duplicate-iii
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-
-标签：排序、Ordered Map
 """
 
 from typing import List

@@ -28,8 +28,6 @@
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/different-ways-to-add-parentheses
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-
-标签：递归、记忆化搜索、数学、字符串、动态规划
 """
 
 from functools import lru_cache

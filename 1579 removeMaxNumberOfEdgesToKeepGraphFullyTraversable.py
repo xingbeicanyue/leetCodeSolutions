@@ -37,8 +37,6 @@ Alice 和 Bob 共有一个无向图，其中包含 n 个节点和 3 种类型�
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/remove-max-number-of-edges-to-keep-graph-fully-traversable
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-
-标签：并查集
 """
 
 from typing import List

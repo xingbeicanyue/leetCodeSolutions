@@ -40,8 +40,6 @@ group[i] 表示第 i 个项目所属的小组，如果这个项目目前无人
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/sort-items-by-groups-respecting-dependencies
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-
-标签：深度优先搜索、图、拓扑排序
 """
 
 from typing import List

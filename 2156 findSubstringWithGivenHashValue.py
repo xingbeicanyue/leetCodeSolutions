@@ -34,8 +34,6 @@ hash(s, p, m) = (val(s[0]) * p^0 + val(s[1]) * p^1 + ... + val(s[k-1]) * p^(k-1)
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/find-substring-with-given-hash-value
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-
-标签：字符串、滑动窗口、哈希函数、滚动哈希
 """
 
 

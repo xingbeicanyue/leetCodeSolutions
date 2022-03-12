@@ -38,8 +38,6 @@ n 块石头放置在二维平面中的一些整数坐标点上。每个坐标点
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/most-stones-removed-with-same-row-or-column
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-
-标签：深度优先搜索、并查集
 """
 
 from typing import Dict, List

@@ -20,8 +20,6 @@
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/max-points-on-a-line
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-
-标签：几何、数组、哈希表、数学
 """
 
 from typing import List

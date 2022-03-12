@@ -40,8 +40,6 @@
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/task-scheduler
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-
-标签：贪心算法、队列、数组
 """
 
 from collections import Counter

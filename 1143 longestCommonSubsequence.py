@@ -24,7 +24,6 @@
 输出：0
 解释：两个字符串没有公共子序列，返回 0 。
 
-
 提示：
 * 1 <= text1.length, text2.length <= 1000
 * text1 和 text2 仅由小写英文字符组成。
@@ -32,8 +31,6 @@
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/longest-common-subsequence
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-
-标签：字符串、动态规划
 """
 
 

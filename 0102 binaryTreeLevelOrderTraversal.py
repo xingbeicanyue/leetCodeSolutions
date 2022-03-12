@@ -20,8 +20,6 @@
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/binary-tree-level-order-traversal
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-
-标签：树、广度优先搜索
 """
 
 from collections import deque

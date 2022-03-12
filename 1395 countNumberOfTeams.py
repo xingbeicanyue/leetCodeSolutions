@@ -31,8 +31,6 @@ n 名士兵站成一排。每个士兵都有一个独一无二的评分 rating �
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/count-number-of-teams
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-
-标签：数组
 """
 
 from typing import List

@@ -33,8 +33,6 @@ numMatrix.sumRegion(1, 2, 2, 4); // return 12
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/range-sum-query-2d-immutable
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-
-标签：设计、数组、矩阵、前缀和
 """
 
 from typing import List

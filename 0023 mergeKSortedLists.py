@@ -35,8 +35,6 @@
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/merge-k-sorted-lists
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-
-标签：链表、分治、堆（优先队列）、归并排序
 """
 
 from heapq import heapify, heappop, heappush

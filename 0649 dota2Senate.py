@@ -37,8 +37,6 @@ Dota2 参议院由来自两派的参议员组成。现在参议院希望对一�
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/dota2-senate
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-
-标签：贪心算法
 """
 
 from typing import List

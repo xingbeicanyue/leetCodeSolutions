@@ -41,9 +41,6 @@
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/convert-bst-to-greater-tree
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-
-标签：树、深度优先搜索、二叉搜索树、递归
-重复题目：#1038
 """
 
 

@@ -43,8 +43,6 @@ x 个元素的平均值是 x 个元素相加之和除以 x ，此时使用截断
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/k-radius-subarray-averages
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-
-标签：数组、滑动窗口
 """
 
 from typing import List

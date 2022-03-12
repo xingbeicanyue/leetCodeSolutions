@@ -90,8 +90,6 @@
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/string-to-integer-atoi
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
-
-标签：字符串、分治、正则表达式
 """
 
 
