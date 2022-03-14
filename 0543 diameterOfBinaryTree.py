@@ -11,7 +11,7 @@
         2   3
        / \
       4   5
-返回 3, 它的长度是路径 [4,2,1,3] 或者 [5,2,1,3]。
+返回 3, 它的长度是路径 [4,2,1,3] 或者 [5,2,1,3]。
 
 注意：两结点之间的路径长度是以它们之间边的数目表示。
 
@@ -21,19 +21,14 @@
 """
 
 from typing import Tuple
-
-
-class TreeNode:
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
+from dataStructure import TreeNode
 
 
 class Solution:
     def diameterOfBinaryTree(self, root: TreeNode) -> int:
 
         def maxLength(node: TreeNode) -> Tuple[int, int]:
+            """ 返回node左子树高度，最长路径长度 """
             leftSMaxLen = leftDMaxLen = rightSMaxLen = rightDMaxLen = 0
             if node.left:
                 leftSMaxLen, leftDMaxLen = maxLength(node.left)
@@ -48,12 +43,12 @@ class Solution:
 if __name__ == '__main__':
     s = Solution()
 
-    node1 = TreeNode(1)
+    root = TreeNode(1)
     node2 = TreeNode(2)
     node3 = TreeNode(3)
     node4 = TreeNode(4)
     node5 = TreeNode(5)
-    node1.left, node1.right = node2, node3
+    root.left, root.right = node2, node3
     node2.left, node2.right = node4, node5
-    r = s.diameterOfBinaryTree(node1)
+    r = s.diameterOfBinaryTree(root)
     print(r)

@@ -1,8 +1,7 @@
 """
 两两交换链表中的节点
 
-给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。
-你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。
+给你一个链表，两两交换其中相邻的节点，并返回交换后链表的头节点。你必须在不修改节点内部的值的情况下完成本题（即，只能进行节点交换）。
 
 示例 1：
 输入：head = [1,2,3,4]
@@ -25,11 +24,7 @@
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 """
 
-
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+from dataStructure import ListNode, printList
 
 
 class Solution:
@@ -42,14 +37,6 @@ class Solution:
         return tmpHead.next
 
 
-def printList(node: ListNode):
-    """ 打印链表 """
-    while node:
-        print(node.val, end=', ')
-        node = node.next
-    print()
-
-
 if __name__ == '__main__':
     s = Solution()
 
@@ -60,7 +47,8 @@ if __name__ == '__main__':
     r = s.swapPairs(head)
     printList(r)
 
-    r = s.swapPairs(None)
+    head = None
+    r = s.swapPairs(head)
     printList(r)
 
     head = ListNode(1)
