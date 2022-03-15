@@ -55,7 +55,7 @@ def printTree(root: TreeNode):
             nodeStrs.append(str(node.val))
             nodes.append(node.left)
             nodes.append(node.right)
-    while nodeStrs and nodeStrs[-1] == NULL_STR:  # 移除最后的空节点
+    while len(nodeStrs) > 1 and nodeStrs[-1] == NULL_STR:  # 移除最后的空节点
         nodeStrs.pop()
     print(', '.join(nodeStrs))
 

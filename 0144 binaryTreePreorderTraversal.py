@@ -4,11 +4,6 @@
 给你二叉树的根节点 root ，返回它节点值的前序遍历。
 
 示例 1：
- 1
- └─┐
-   2
- ┌─┘
- 3
 输入：root = [1,null,2,3]
 输出：[1,2,3]
 
@@ -21,16 +16,10 @@
 输出：[1]
 
 示例 4：
-   1
- ┌─┘
- 2
 输入：root = [1,2]
 输出：[1,2]
 
 示例 5：
- 1
- └─┐
-   2
 输入：root = [1,null,2]
 输出：[1,2]
 
@@ -46,54 +35,49 @@
 """
 
 from typing import List
-
-
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+from dataStructure import TreeNode
 
 
 class Solution:
     def preorderTraversal(self, root: TreeNode) -> List[int]:
-        result, nodes, curNode = [], [], root
-        while True:
+        result, nodes = [], [root]
+        while nodes:
+            curNode = nodes.pop()
             if curNode is None:
-                if nodes:
-                    curNode = nodes.pop()
-                else:
-                    break
+                continue
             result.append(curNode.val)
-            if curNode.right:
-                nodes.append(curNode.right)
-            curNode = curNode.left
+            nodes.append(curNode.right)
+            nodes.append(curNode.left)
         return result
 
 
 if __name__ == '__main__':
     s = Solution()
-    nodes = [TreeNode(i) for i in range(1, 4)]
 
-    nodes[0].left, nodes[0].right = None, nodes[1]
-    nodes[1].left, nodes[1].right = nodes[2], None
-    nodes[2].left, nodes[2].right = None, None
-    r = s.preorderTraversal(nodes[0])
+    root = TreeNode(1)
+    node2 = TreeNode(2)
+    node3 = TreeNode(3)
+    root.right = node2
+    node2.left = node3
+    r = s.preorderTraversal(root)
     print(r)
 
-    r = s.preorderTraversal(None)
+    root = None
+    r = s.preorderTraversal(root)
     print(r)
 
-    nodes[0].left, nodes[0].right = None, None
-    r = s.preorderTraversal(nodes[0])
+    root = TreeNode(1)
+    r = s.preorderTraversal(root)
     print(r)
 
-    nodes[0].left, nodes[0].right = nodes[1], None
-    nodes[1].left, nodes[1].right = None, None
-    r = s.preorderTraversal(nodes[0])
+    root = TreeNode(1)
+    node2 = TreeNode(2)
+    root.left = node2
+    r = s.preorderTraversal(root)
     print(r)
 
-    nodes[0].left, nodes[0].right = None, nodes[1]
-    nodes[1].left, nodes[1].right = None, None
-    r = s.preorderTraversal(nodes[0])
+    root = TreeNode(1)
+    node2 = TreeNode(2)
+    root.right = node2
+    r = s.preorderTraversal(root)
     print(r)
